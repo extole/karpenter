@@ -31,15 +31,15 @@ import (
 	"k8s.io/apimachinery/pkg/util/uuid"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	. "sigs.k8s.io/karpenter/pkg/utils/testing"
+	. "github.com/extole/karpenter/pkg/utils/testing"
 
-	"sigs.k8s.io/karpenter/pkg/controllers/node/termination/terminator"
+	"github.com/extole/karpenter/pkg/controllers/node/termination/terminator"
 
-	"sigs.k8s.io/karpenter/pkg/apis"
-	"sigs.k8s.io/karpenter/pkg/operator/options"
-	"sigs.k8s.io/karpenter/pkg/operator/scheme"
-	"sigs.k8s.io/karpenter/pkg/test"
-	. "sigs.k8s.io/karpenter/pkg/test/expectations"
+	"github.com/extole/karpenter/pkg/apis"
+	"github.com/extole/karpenter/pkg/operator/options"
+	"github.com/extole/karpenter/pkg/operator/scheme"
+	"github.com/extole/karpenter/pkg/test"
+	. "github.com/extole/karpenter/pkg/test/expectations"
 )
 
 var ctx context.Context

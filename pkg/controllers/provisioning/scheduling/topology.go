@@ -23,10 +23,10 @@ import (
 
 	"k8s.io/apimachinery/pkg/api/errors"
 
-	"sigs.k8s.io/karpenter/pkg/controllers/state"
-	"sigs.k8s.io/karpenter/pkg/scheduling"
-	"sigs.k8s.io/karpenter/pkg/utils/functional"
-	"sigs.k8s.io/karpenter/pkg/utils/pretty"
+	"github.com/extole/karpenter/pkg/controllers/state"
+	"github.com/extole/karpenter/pkg/scheduling"
+	"github.com/extole/karpenter/pkg/utils/functional"
+	"github.com/extole/karpenter/pkg/utils/pretty"
 
 	"go.uber.org/multierr"
 	v1 "k8s.io/api/core/v1"
@@ -37,7 +37,7 @@ import (
 	"k8s.io/apimachinery/pkg/util/sets"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"sigs.k8s.io/karpenter/pkg/utils/pod"
+	"github.com/extole/karpenter/pkg/utils/pod"
 )
 
 type Topology struct {

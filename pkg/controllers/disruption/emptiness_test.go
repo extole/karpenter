@@ -30,11 +30,11 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1alpha5"
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/controllers/disruption"
-	"sigs.k8s.io/karpenter/pkg/test"
-	. "sigs.k8s.io/karpenter/pkg/test/expectations"
+	"github.com/extole/karpenter/pkg/apis/v1alpha5"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/controllers/disruption"
+	"github.com/extole/karpenter/pkg/test"
+	. "github.com/extole/karpenter/pkg/test/expectations"
 )
 
 var _ = Describe("Emptiness", func() {

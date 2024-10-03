@@ -25,7 +25,7 @@ import (
 	. "github.com/onsi/gomega"
 	prometheusmodel "github.com/prometheus/client_model/go"
 
-	. "sigs.k8s.io/karpenter/pkg/test/expectations"
+	. "github.com/extole/karpenter/pkg/test/expectations"
 )
 
 func TestOperator(t *testing.T) {

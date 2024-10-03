@@ -28,22 +28,22 @@ import (
 	clock "k8s.io/utils/clock/testing"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"sigs.k8s.io/karpenter/pkg/apis"
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/cloudprovider/fake"
-	"sigs.k8s.io/karpenter/pkg/controllers/node/termination"
-	"sigs.k8s.io/karpenter/pkg/controllers/node/termination/terminator"
-	"sigs.k8s.io/karpenter/pkg/metrics"
-	"sigs.k8s.io/karpenter/pkg/operator/scheme"
-	"sigs.k8s.io/karpenter/pkg/test"
+	"github.com/extole/karpenter/pkg/apis"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/cloudprovider/fake"
+	"github.com/extole/karpenter/pkg/controllers/node/termination"
+	"github.com/extole/karpenter/pkg/controllers/node/termination/terminator"
+	"github.com/extole/karpenter/pkg/metrics"
+	"github.com/extole/karpenter/pkg/operator/scheme"
+	"github.com/extole/karpenter/pkg/test"
 
 	v1 "k8s.io/api/core/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/util/intstr"
 
-	. "sigs.k8s.io/karpenter/pkg/utils/testing"
+	. "github.com/extole/karpenter/pkg/utils/testing"
 
-	. "sigs.k8s.io/karpenter/pkg/test/expectations"
+	. "github.com/extole/karpenter/pkg/test/expectations"
 )
 
 var ctx context.Context

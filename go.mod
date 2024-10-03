@@ -1,4 +1,4 @@
-module sigs.k8s.io/karpenter
+module github.com/extole/karpenter
 
 go 1.22.3
 

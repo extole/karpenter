@@ -42,9 +42,9 @@ import (
 	"knative.dev/pkg/webhook/resourcesemantics/validation"
 	"sigs.k8s.io/controller-runtime/pkg/healthz"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/operator/logging"
-	"sigs.k8s.io/karpenter/pkg/operator/options"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/operator/logging"
+	"github.com/extole/karpenter/pkg/operator/options"
 )
 
 const component = "webhook"

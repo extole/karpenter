@@ -33,9 +33,9 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/envtest"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/utils/env"
-	"sigs.k8s.io/karpenter/pkg/utils/functional"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/utils/env"
+	"github.com/extole/karpenter/pkg/utils/functional"
 )
 
 type Environment struct {

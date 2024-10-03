@@ -27,11 +27,11 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/controllers/state"
-	"sigs.k8s.io/karpenter/pkg/metrics"
-	"sigs.k8s.io/karpenter/pkg/utils/node"
-	nodeclaimutil "sigs.k8s.io/karpenter/pkg/utils/nodeclaim"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/controllers/state"
+	"github.com/extole/karpenter/pkg/metrics"
+	"github.com/extole/karpenter/pkg/utils/node"
+	nodeclaimutil "github.com/extole/karpenter/pkg/utils/nodeclaim"
 )
 
 // Emptiness is a nodeclaim sub-controller that adds or removes status conditions on empty nodeclaims based on TTLSecondsAfterEmpty

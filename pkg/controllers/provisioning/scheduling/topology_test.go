@@ -29,10 +29,10 @@ import (
 
 	. "github.com/onsi/ginkgo/v2"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/cloudprovider/fake"
-	"sigs.k8s.io/karpenter/pkg/test"
-	. "sigs.k8s.io/karpenter/pkg/test/expectations"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/cloudprovider/fake"
+	"github.com/extole/karpenter/pkg/test"
+	. "github.com/extole/karpenter/pkg/test/expectations"
 )
 
 var _ = Describe("Topology", func() {

@@ -28,16 +28,16 @@ import (
 	"k8s.io/apimachinery/pkg/api/resource"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 
-	. "sigs.k8s.io/karpenter/pkg/utils/testing"
+	. "github.com/extole/karpenter/pkg/utils/testing"
 
-	. "sigs.k8s.io/karpenter/pkg/test/expectations"
+	. "github.com/extole/karpenter/pkg/test/expectations"
 
-	"sigs.k8s.io/karpenter/pkg/apis"
+	"github.com/extole/karpenter/pkg/apis"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/controllers/nodepool/hash"
-	"sigs.k8s.io/karpenter/pkg/operator/scheme"
-	"sigs.k8s.io/karpenter/pkg/test"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/controllers/nodepool/hash"
+	"github.com/extole/karpenter/pkg/operator/scheme"
+	"github.com/extole/karpenter/pkg/test"
 )
 
 var nodePoolController *hash.Controller

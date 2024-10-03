@@ -28,8 +28,8 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	"k8s.io/apimachinery/pkg/util/sets"
 
-	"sigs.k8s.io/karpenter/pkg/scheduling"
-	"sigs.k8s.io/karpenter/pkg/utils/functional"
+	"github.com/extole/karpenter/pkg/scheduling"
+	"github.com/extole/karpenter/pkg/utils/functional"
 )
 
 type TopologyType byte

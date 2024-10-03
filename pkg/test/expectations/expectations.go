@@ -49,18 +49,18 @@ import (
 	crmetrics "sigs.k8s.io/controller-runtime/pkg/metrics"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 
-	"sigs.k8s.io/karpenter/pkg/controllers/state/informer"
+	"github.com/extole/karpenter/pkg/controllers/state/informer"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/cloudprovider"
-	"sigs.k8s.io/karpenter/pkg/controllers/nodeclaim/lifecycle"
-	"sigs.k8s.io/karpenter/pkg/controllers/provisioning"
-	"sigs.k8s.io/karpenter/pkg/controllers/provisioning/scheduling"
-	"sigs.k8s.io/karpenter/pkg/controllers/state"
-	"sigs.k8s.io/karpenter/pkg/metrics"
-	"sigs.k8s.io/karpenter/pkg/operator/scheme"
-	pscheduling "sigs.k8s.io/karpenter/pkg/scheduling"
-	"sigs.k8s.io/karpenter/pkg/test"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/cloudprovider"
+	"github.com/extole/karpenter/pkg/controllers/nodeclaim/lifecycle"
+	"github.com/extole/karpenter/pkg/controllers/provisioning"
+	"github.com/extole/karpenter/pkg/controllers/provisioning/scheduling"
+	"github.com/extole/karpenter/pkg/controllers/state"
+	"github.com/extole/karpenter/pkg/metrics"
+	"github.com/extole/karpenter/pkg/operator/scheme"
+	pscheduling "github.com/extole/karpenter/pkg/scheduling"
+	"github.com/extole/karpenter/pkg/test"
 )
 
 const (

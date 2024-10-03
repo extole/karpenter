@@ -28,17 +28,17 @@ import (
 	"k8s.io/utils/clock"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1alpha5"
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/cloudprovider"
-	disruptionevents "sigs.k8s.io/karpenter/pkg/controllers/disruption/events"
-	"sigs.k8s.io/karpenter/pkg/controllers/disruption/orchestration"
-	"sigs.k8s.io/karpenter/pkg/controllers/provisioning"
-	pscheduling "sigs.k8s.io/karpenter/pkg/controllers/provisioning/scheduling"
-	"sigs.k8s.io/karpenter/pkg/controllers/state"
-	"sigs.k8s.io/karpenter/pkg/events"
-	"sigs.k8s.io/karpenter/pkg/operator/options"
-	"sigs.k8s.io/karpenter/pkg/scheduling"
+	"github.com/extole/karpenter/pkg/apis/v1alpha5"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/cloudprovider"
+	disruptionevents "github.com/extole/karpenter/pkg/controllers/disruption/events"
+	"github.com/extole/karpenter/pkg/controllers/disruption/orchestration"
+	"github.com/extole/karpenter/pkg/controllers/provisioning"
+	pscheduling "github.com/extole/karpenter/pkg/controllers/provisioning/scheduling"
+	"github.com/extole/karpenter/pkg/controllers/state"
+	"github.com/extole/karpenter/pkg/events"
+	"github.com/extole/karpenter/pkg/operator/options"
+	"github.com/extole/karpenter/pkg/scheduling"
 )
 
 // consolidationTTL is the TTL between creating a consolidation command and validating that it still works.

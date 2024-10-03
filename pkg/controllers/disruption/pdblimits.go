@@ -26,7 +26,7 @@ import (
 	"k8s.io/utils/clock"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	podutil "sigs.k8s.io/karpenter/pkg/utils/pod"
+	podutil "github.com/extole/karpenter/pkg/utils/pod"
 )
 
 // PDBLimits is used to evaluate if evicting a list of pods is possible.

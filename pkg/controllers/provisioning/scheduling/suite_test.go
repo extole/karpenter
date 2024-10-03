@@ -40,28 +40,28 @@ import (
 	clock "k8s.io/utils/clock/testing"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"sigs.k8s.io/karpenter/pkg/operator/injection"
+	"github.com/extole/karpenter/pkg/operator/injection"
 
-	"sigs.k8s.io/karpenter/pkg/apis"
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/cloudprovider"
-	"sigs.k8s.io/karpenter/pkg/cloudprovider/fake"
-	"sigs.k8s.io/karpenter/pkg/controllers/provisioning"
-	"sigs.k8s.io/karpenter/pkg/controllers/provisioning/scheduling"
-	"sigs.k8s.io/karpenter/pkg/controllers/state"
-	"sigs.k8s.io/karpenter/pkg/controllers/state/informer"
-	"sigs.k8s.io/karpenter/pkg/events"
-	"sigs.k8s.io/karpenter/pkg/operator/options"
-	"sigs.k8s.io/karpenter/pkg/operator/scheme"
-	pscheduling "sigs.k8s.io/karpenter/pkg/scheduling"
-	"sigs.k8s.io/karpenter/pkg/test"
+	"github.com/extole/karpenter/pkg/apis"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/cloudprovider"
+	"github.com/extole/karpenter/pkg/cloudprovider/fake"
+	"github.com/extole/karpenter/pkg/controllers/provisioning"
+	"github.com/extole/karpenter/pkg/controllers/provisioning/scheduling"
+	"github.com/extole/karpenter/pkg/controllers/state"
+	"github.com/extole/karpenter/pkg/controllers/state/informer"
+	"github.com/extole/karpenter/pkg/events"
+	"github.com/extole/karpenter/pkg/operator/options"
+	"github.com/extole/karpenter/pkg/operator/scheme"
+	pscheduling "github.com/extole/karpenter/pkg/scheduling"
+	"github.com/extole/karpenter/pkg/test"
 
 	. "github.com/onsi/ginkgo/v2"
 	. "github.com/onsi/gomega"
 
-	. "sigs.k8s.io/karpenter/pkg/utils/testing"
+	. "github.com/extole/karpenter/pkg/utils/testing"
 
-	. "sigs.k8s.io/karpenter/pkg/test/expectations"
+	. "github.com/extole/karpenter/pkg/test/expectations"
 )
 
 var ctx context.Context

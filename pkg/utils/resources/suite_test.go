@@ -25,10 +25,10 @@ import (
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
 
-	. "sigs.k8s.io/karpenter/pkg/test/expectations"
-	"sigs.k8s.io/karpenter/pkg/utils/resources"
+	. "github.com/extole/karpenter/pkg/test/expectations"
+	"github.com/extole/karpenter/pkg/utils/resources"
 
-	"sigs.k8s.io/karpenter/pkg/test"
+	"github.com/extole/karpenter/pkg/test"
 )
 
 func TestResources(t *testing.T) {

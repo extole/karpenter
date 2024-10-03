@@ -24,7 +24,7 @@ import (
 	v1 "k8s.io/api/core/v1"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"sigs.k8s.io/karpenter/pkg/utils/pod"
+	"github.com/extole/karpenter/pkg/utils/pod"
 )
 
 // GetPods grabs all pods that are currently bound to the passed nodes

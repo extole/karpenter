@@ -20,7 +20,7 @@ import (
 	"github.com/prometheus/client_golang/prometheus"
 	crmetrics "sigs.k8s.io/controller-runtime/pkg/metrics"
 
-	"sigs.k8s.io/karpenter/pkg/metrics"
+	"github.com/extole/karpenter/pkg/metrics"
 )
 
 const (

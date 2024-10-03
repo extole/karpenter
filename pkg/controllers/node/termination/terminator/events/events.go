@@ -21,7 +21,7 @@ import (
 
 	v1 "k8s.io/api/core/v1"
 
-	"sigs.k8s.io/karpenter/pkg/events"
+	"github.com/extole/karpenter/pkg/events"
 )
 
 func EvictPod(pod *v1.Pod) events.Event {

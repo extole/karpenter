@@ -33,19 +33,19 @@ import (
 	. "github.com/onsi/gomega"
 	"github.com/samber/lo"
 
-	. "sigs.k8s.io/karpenter/pkg/utils/testing"
+	. "github.com/extole/karpenter/pkg/utils/testing"
 
-	"sigs.k8s.io/karpenter/pkg/apis"
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/cloudprovider/fake"
-	nodeclaimgarbagecollection "sigs.k8s.io/karpenter/pkg/controllers/nodeclaim/garbagecollection"
-	nodeclaimlifcycle "sigs.k8s.io/karpenter/pkg/controllers/nodeclaim/lifecycle"
-	"sigs.k8s.io/karpenter/pkg/events"
-	"sigs.k8s.io/karpenter/pkg/operator/options"
-	"sigs.k8s.io/karpenter/pkg/operator/scheme"
-	"sigs.k8s.io/karpenter/pkg/test"
+	"github.com/extole/karpenter/pkg/apis"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/cloudprovider/fake"
+	nodeclaimgarbagecollection "github.com/extole/karpenter/pkg/controllers/nodeclaim/garbagecollection"
+	nodeclaimlifcycle "github.com/extole/karpenter/pkg/controllers/nodeclaim/lifecycle"
+	"github.com/extole/karpenter/pkg/events"
+	"github.com/extole/karpenter/pkg/operator/options"
+	"github.com/extole/karpenter/pkg/operator/scheme"
+	"github.com/extole/karpenter/pkg/test"
 
-	. "sigs.k8s.io/karpenter/pkg/test/expectations"
+	. "github.com/extole/karpenter/pkg/test/expectations"
 )
 
 var ctx context.Context

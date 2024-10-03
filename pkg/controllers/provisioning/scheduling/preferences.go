@@ -26,7 +26,7 @@ import (
 	"k8s.io/klog/v2"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	"sigs.k8s.io/karpenter/pkg/utils/pretty"
+	"github.com/extole/karpenter/pkg/utils/pretty"
 )
 
 type Preferences struct {

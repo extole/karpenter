@@ -24,9 +24,9 @@ import (
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
 
-	"sigs.k8s.io/karpenter/pkg/cloudprovider"
-	"sigs.k8s.io/karpenter/pkg/scheduling"
-	"sigs.k8s.io/karpenter/pkg/utils/resources"
+	"github.com/extole/karpenter/pkg/cloudprovider"
+	"github.com/extole/karpenter/pkg/scheduling"
+	"github.com/extole/karpenter/pkg/utils/resources"
 )
 
 // NodeClaim is a set of constraints, compatible pods, and possible instance types that could fulfill these constraints. This

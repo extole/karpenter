@@ -4,7 +4,7 @@
 
 The Karpenter project is an SIG autoscaling project that has the following two components:
 - Kubernetes Custom Resource Definitions (CRDs)
-- Corresponding Go API in the form of [`sigs.k8s.io/karpenter`](https://pkg.go.dev/sigs.k8s.io/karpenter) Go package
+- Corresponding Go API in the form of [`github.com/extole/karpenter`](https://pkg.go.dev/github.com/extole/karpenter) Go package
 
 This repository is the home for both of the above components.
 

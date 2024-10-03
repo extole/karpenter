@@ -32,13 +32,13 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 
-	"sigs.k8s.io/karpenter/pkg/operator/injection"
+	"github.com/extole/karpenter/pkg/operator/injection"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/cloudprovider"
-	"sigs.k8s.io/karpenter/pkg/controllers/state"
-	nodeclaimutil "sigs.k8s.io/karpenter/pkg/utils/nodeclaim"
-	"sigs.k8s.io/karpenter/pkg/utils/result"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/cloudprovider"
+	"github.com/extole/karpenter/pkg/controllers/state"
+	nodeclaimutil "github.com/extole/karpenter/pkg/utils/nodeclaim"
+	"github.com/extole/karpenter/pkg/utils/result"
 )
 
 type nodeClaimReconciler interface {

@@ -43,7 +43,7 @@ linters-settings:
     locale: US
     ignore-words: []
   goimports:
-    local-prefixes: sigs.k8s.io/karpenter
+    local-prefixes: github.com/extole/karpenter
   goheader:
     template: |-
       Copyright The Kubernetes Authors.

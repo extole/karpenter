@@ -28,7 +28,7 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	volumeutil "sigs.k8s.io/karpenter/pkg/utils/volume"
+	volumeutil "github.com/extole/karpenter/pkg/utils/volume"
 )
 
 func NewVolumeTopology(kubeClient client.Client) *VolumeTopology {

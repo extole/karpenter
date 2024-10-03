@@ -29,9 +29,9 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/ratelimiter"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 
-	"sigs.k8s.io/karpenter/pkg/operator/injection"
+	"github.com/extole/karpenter/pkg/operator/injection"
 
-	"sigs.k8s.io/karpenter/pkg/metrics"
+	"github.com/extole/karpenter/pkg/metrics"
 )
 
 const (

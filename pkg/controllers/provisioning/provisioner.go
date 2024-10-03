@@ -36,21 +36,21 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 
-	nodeutil "sigs.k8s.io/karpenter/pkg/utils/node"
+	nodeutil "github.com/extole/karpenter/pkg/utils/node"
 
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/operator/controller"
-	"sigs.k8s.io/karpenter/pkg/scheduling"
-	"sigs.k8s.io/karpenter/pkg/utils/functional"
-	"sigs.k8s.io/karpenter/pkg/utils/pretty"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/operator/controller"
+	"github.com/extole/karpenter/pkg/scheduling"
+	"github.com/extole/karpenter/pkg/utils/functional"
+	"github.com/extole/karpenter/pkg/utils/pretty"
 
-	"sigs.k8s.io/karpenter/pkg/cloudprovider"
-	scheduler "sigs.k8s.io/karpenter/pkg/controllers/provisioning/scheduling"
-	"sigs.k8s.io/karpenter/pkg/controllers/state"
-	"sigs.k8s.io/karpenter/pkg/events"
-	"sigs.k8s.io/karpenter/pkg/metrics"
+	"github.com/extole/karpenter/pkg/cloudprovider"
+	scheduler "github.com/extole/karpenter/pkg/controllers/provisioning/scheduling"
+	"github.com/extole/karpenter/pkg/controllers/state"
+	"github.com/extole/karpenter/pkg/events"
+	"github.com/extole/karpenter/pkg/metrics"
 )
 
 // LaunchOptions are the set of options that can be used to trigger certain

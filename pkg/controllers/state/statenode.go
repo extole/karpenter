@@ -29,12 +29,12 @@ import (
 	"k8s.io/apimachinery/pkg/types"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/operator/options"
-	"sigs.k8s.io/karpenter/pkg/scheduling"
-	nodeutils "sigs.k8s.io/karpenter/pkg/utils/node"
-	podutils "sigs.k8s.io/karpenter/pkg/utils/pod"
-	"sigs.k8s.io/karpenter/pkg/utils/resources"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/operator/options"
+	"github.com/extole/karpenter/pkg/scheduling"
+	nodeutils "github.com/extole/karpenter/pkg/utils/node"
+	podutils "github.com/extole/karpenter/pkg/utils/pod"
+	"github.com/extole/karpenter/pkg/utils/resources"
 )
 
 //go:generate controller-gen object:headerFile="../../../hack/boilerplate.go.txt" paths="."

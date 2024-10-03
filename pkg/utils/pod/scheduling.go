@@ -23,9 +23,9 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"k8s.io/utils/clock"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1alpha5"
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/scheduling"
+	"github.com/extole/karpenter/pkg/apis/v1alpha5"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/scheduling"
 )
 
 // IsActive checks if Karpenter should consider this pod as running by ensuring that the pod:

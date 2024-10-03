@@ -25,8 +25,8 @@ import (
 
 	"github.com/samber/lo"
 
-	disruptionevents "sigs.k8s.io/karpenter/pkg/controllers/disruption/events"
-	nodeutils "sigs.k8s.io/karpenter/pkg/utils/node"
+	disruptionevents "github.com/extole/karpenter/pkg/controllers/disruption/events"
+	nodeutils "github.com/extole/karpenter/pkg/utils/node"
 
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/util/sets"
@@ -34,16 +34,16 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/cloudprovider"
-	"sigs.k8s.io/karpenter/pkg/controllers/disruption/orchestration"
-	"sigs.k8s.io/karpenter/pkg/controllers/provisioning"
-	pscheduling "sigs.k8s.io/karpenter/pkg/controllers/provisioning/scheduling"
-	"sigs.k8s.io/karpenter/pkg/controllers/state"
-	"sigs.k8s.io/karpenter/pkg/events"
-	"sigs.k8s.io/karpenter/pkg/metrics"
-	operatorlogging "sigs.k8s.io/karpenter/pkg/operator/logging"
-	"sigs.k8s.io/karpenter/pkg/scheduling"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/cloudprovider"
+	"github.com/extole/karpenter/pkg/controllers/disruption/orchestration"
+	"github.com/extole/karpenter/pkg/controllers/provisioning"
+	pscheduling "github.com/extole/karpenter/pkg/controllers/provisioning/scheduling"
+	"github.com/extole/karpenter/pkg/controllers/state"
+	"github.com/extole/karpenter/pkg/events"
+	"github.com/extole/karpenter/pkg/metrics"
+	operatorlogging "github.com/extole/karpenter/pkg/operator/logging"
+	"github.com/extole/karpenter/pkg/scheduling"
 )
 
 var errCandidateDeleting = fmt.Errorf("candidate is deleting")

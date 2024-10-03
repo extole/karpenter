@@ -26,7 +26,7 @@ import (
 	"github.com/samber/lo"
 	v1 "k8s.io/api/core/v1"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
 )
 
 var _ = Describe("Requirements", func() {

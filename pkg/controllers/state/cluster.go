@@ -38,10 +38,10 @@ import (
 
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/cloudprovider"
-	"sigs.k8s.io/karpenter/pkg/scheduling"
-	podutils "sigs.k8s.io/karpenter/pkg/utils/pod"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/cloudprovider"
+	"github.com/extole/karpenter/pkg/scheduling"
+	podutils "github.com/extole/karpenter/pkg/utils/pod"
 )
 
 // Cluster maintains cluster state that is often needed but expensive to compute.

@@ -25,12 +25,12 @@ import (
 	v1 "k8s.io/api/core/v1"
 	"sigs.k8s.io/controller-runtime/pkg/client"
 
-	. "sigs.k8s.io/karpenter/pkg/utils/testing"
+	. "github.com/extole/karpenter/pkg/utils/testing"
 
-	"sigs.k8s.io/karpenter/pkg/controllers/metrics/pod"
-	"sigs.k8s.io/karpenter/pkg/operator/scheme"
-	"sigs.k8s.io/karpenter/pkg/test"
-	. "sigs.k8s.io/karpenter/pkg/test/expectations"
+	"github.com/extole/karpenter/pkg/controllers/metrics/pod"
+	"github.com/extole/karpenter/pkg/operator/scheme"
+	"github.com/extole/karpenter/pkg/test"
+	. "github.com/extole/karpenter/pkg/test/expectations"
 )
 
 var podController *pod.Controller

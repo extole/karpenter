@@ -21,7 +21,7 @@ import (
 
 	"github.com/samber/lo"
 
-	"sigs.k8s.io/karpenter/pkg/events"
+	"github.com/extole/karpenter/pkg/events"
 )
 
 var _ events.Recorder = (*EventRecorder)(nil)

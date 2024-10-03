@@ -23,7 +23,7 @@ import (
 
 	"github.com/samber/lo"
 
-	"sigs.k8s.io/karpenter/pkg/operator/options"
+	"github.com/extole/karpenter/pkg/operator/options"
 )
 
 type controllerNameKeyType struct{}

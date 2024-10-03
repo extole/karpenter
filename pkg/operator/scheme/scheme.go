@@ -22,7 +22,7 @@ import (
 
 	"github.com/samber/lo"
 
-	"sigs.k8s.io/karpenter/pkg/apis"
+	"github.com/extole/karpenter/pkg/apis"
 )
 
 var (

@@ -32,7 +32,7 @@ import (
 
 	"knative.dev/pkg/logging/logkey"
 
-	"sigs.k8s.io/karpenter/pkg/operator/options"
+	"github.com/extole/karpenter/pkg/operator/options"
 )
 
 const (

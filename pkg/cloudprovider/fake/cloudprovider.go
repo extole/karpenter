@@ -30,12 +30,12 @@ import (
 	"k8s.io/apimachinery/pkg/runtime/schema"
 	"k8s.io/apimachinery/pkg/util/sets"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/cloudprovider"
-	"sigs.k8s.io/karpenter/pkg/scheduling"
-	"sigs.k8s.io/karpenter/pkg/test"
-	"sigs.k8s.io/karpenter/pkg/utils/functional"
-	"sigs.k8s.io/karpenter/pkg/utils/resources"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/cloudprovider"
+	"github.com/extole/karpenter/pkg/scheduling"
+	"github.com/extole/karpenter/pkg/test"
+	"github.com/extole/karpenter/pkg/utils/functional"
+	"github.com/extole/karpenter/pkg/utils/resources"
 )
 
 var _ cloudprovider.CloudProvider = (*CloudProvider)(nil)

@@ -27,10 +27,10 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	nodeutil "sigs.k8s.io/karpenter/pkg/utils/node"
+	nodeutil "github.com/extole/karpenter/pkg/utils/node"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	podutil "sigs.k8s.io/karpenter/pkg/utils/pod"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	podutil "github.com/extole/karpenter/pkg/utils/pod"
 )
 
 type Terminator struct {

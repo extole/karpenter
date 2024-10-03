@@ -23,7 +23,7 @@ contribution-policy:
 documentation:
   - 'https://karpenter.sh/docs'
 distribution-points:
-  - 'https://pkg.go.dev/sigs.k8s.io/karpenter'
+  - 'https://pkg.go.dev/github.com/extole/karpenter'
 security-artifacts:
   threat-model:
     threat-model-created: true

@@ -33,13 +33,13 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 
-	nodeutils "sigs.k8s.io/karpenter/pkg/utils/node"
-	nodeclaimutil "sigs.k8s.io/karpenter/pkg/utils/nodeclaim"
+	nodeutils "github.com/extole/karpenter/pkg/utils/node"
+	nodeclaimutil "github.com/extole/karpenter/pkg/utils/nodeclaim"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/cloudprovider"
-	"sigs.k8s.io/karpenter/pkg/metrics"
-	operatorcontroller "sigs.k8s.io/karpenter/pkg/operator/controller"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/cloudprovider"
+	"github.com/extole/karpenter/pkg/metrics"
+	operatorcontroller "github.com/extole/karpenter/pkg/operator/controller"
 )
 
 type Controller struct {

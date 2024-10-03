@@ -26,8 +26,8 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/client"
 	crmetrics "sigs.k8s.io/controller-runtime/pkg/metrics"
 
-	"sigs.k8s.io/karpenter/pkg/metrics"
-	. "sigs.k8s.io/karpenter/pkg/test/expectations"
+	"github.com/extole/karpenter/pkg/metrics"
+	. "github.com/extole/karpenter/pkg/test/expectations"
 )
 
 var testGauge1, testGauge2 *prometheus.GaugeVec

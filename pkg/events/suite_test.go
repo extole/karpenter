@@ -29,11 +29,11 @@ import (
 	"k8s.io/apimachinery/pkg/util/uuid"
 	"k8s.io/client-go/util/flowcontrol"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	terminatorevents "sigs.k8s.io/karpenter/pkg/controllers/node/termination/terminator/events"
-	schedulingevents "sigs.k8s.io/karpenter/pkg/controllers/provisioning/scheduling"
-	"sigs.k8s.io/karpenter/pkg/events"
-	"sigs.k8s.io/karpenter/pkg/test"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	terminatorevents "github.com/extole/karpenter/pkg/controllers/node/termination/terminator/events"
+	schedulingevents "github.com/extole/karpenter/pkg/controllers/provisioning/scheduling"
+	"github.com/extole/karpenter/pkg/events"
+	"github.com/extole/karpenter/pkg/test"
 )
 
 var eventRecorder events.Recorder

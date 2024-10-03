@@ -27,10 +27,10 @@ import (
 
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	"sigs.k8s.io/karpenter/pkg/cloudprovider"
-	"sigs.k8s.io/karpenter/pkg/controllers/provisioning/scheduling"
-	"sigs.k8s.io/karpenter/pkg/metrics"
-	scheduler "sigs.k8s.io/karpenter/pkg/scheduling"
+	"github.com/extole/karpenter/pkg/cloudprovider"
+	"github.com/extole/karpenter/pkg/controllers/provisioning/scheduling"
+	"github.com/extole/karpenter/pkg/metrics"
+	scheduler "github.com/extole/karpenter/pkg/scheduling"
 )
 
 const MultiNodeConsolidationTimeoutDuration = 1 * time.Minute

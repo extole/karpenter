@@ -19,12 +19,12 @@ package main
 import (
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	"sigs.k8s.io/karpenter/kwok/apis/v1alpha1"
-	kwok "sigs.k8s.io/karpenter/kwok/cloudprovider"
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/controllers"
-	"sigs.k8s.io/karpenter/pkg/controllers/state"
-	"sigs.k8s.io/karpenter/pkg/operator"
+	"github.com/extole/karpenter/kwok/apis/v1alpha1"
+	kwok "github.com/extole/karpenter/kwok/cloudprovider"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/controllers"
+	"github.com/extole/karpenter/pkg/controllers/state"
+	"github.com/extole/karpenter/pkg/operator"
 )
 
 func init() {

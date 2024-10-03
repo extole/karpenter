@@ -22,7 +22,7 @@ import (
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
 
-	"sigs.k8s.io/karpenter/pkg/utils/pretty"
+	"github.com/extole/karpenter/pkg/utils/pretty"
 )
 
 // RequestsForPods returns the total resources of a variadic list of podspecs.

@@ -27,7 +27,7 @@ import (
 	"github.com/samber/lo"
 	cliflag "k8s.io/component-base/cli/flag"
 
-	"sigs.k8s.io/karpenter/pkg/utils/env"
+	"github.com/extole/karpenter/pkg/utils/env"
 )
 
 var (

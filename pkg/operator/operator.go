@@ -34,9 +34,9 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/log"
 	crmetrics "sigs.k8s.io/controller-runtime/pkg/metrics"
 
-	"sigs.k8s.io/karpenter/pkg/operator/controller"
+	"github.com/extole/karpenter/pkg/operator/controller"
 
-	"sigs.k8s.io/karpenter/pkg/metrics"
+	"github.com/extole/karpenter/pkg/metrics"
 
 	"github.com/samber/lo"
 	v1 "k8s.io/api/core/v1"
@@ -57,13 +57,13 @@ import (
 
 	"github.com/go-logr/zapr"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/events"
-	"sigs.k8s.io/karpenter/pkg/operator/injection"
-	"sigs.k8s.io/karpenter/pkg/operator/logging"
-	"sigs.k8s.io/karpenter/pkg/operator/options"
-	"sigs.k8s.io/karpenter/pkg/operator/scheme"
-	"sigs.k8s.io/karpenter/pkg/webhooks"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/events"
+	"github.com/extole/karpenter/pkg/operator/injection"
+	"github.com/extole/karpenter/pkg/operator/logging"
+	"github.com/extole/karpenter/pkg/operator/options"
+	"github.com/extole/karpenter/pkg/operator/scheme"
+	"github.com/extole/karpenter/pkg/webhooks"
 )
 
 const (

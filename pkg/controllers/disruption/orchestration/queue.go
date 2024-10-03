@@ -38,14 +38,14 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 
-	"sigs.k8s.io/karpenter/pkg/controllers/provisioning"
-	"sigs.k8s.io/karpenter/pkg/metrics"
-	"sigs.k8s.io/karpenter/pkg/operator/controller"
+	"github.com/extole/karpenter/pkg/controllers/provisioning"
+	"github.com/extole/karpenter/pkg/metrics"
+	"github.com/extole/karpenter/pkg/operator/controller"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	disruptionevents "sigs.k8s.io/karpenter/pkg/controllers/disruption/events"
-	"sigs.k8s.io/karpenter/pkg/controllers/state"
-	"sigs.k8s.io/karpenter/pkg/events"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	disruptionevents "github.com/extole/karpenter/pkg/controllers/disruption/events"
+	"github.com/extole/karpenter/pkg/controllers/state"
+	"github.com/extole/karpenter/pkg/events"
 )
 
 const (

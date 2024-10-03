@@ -28,15 +28,15 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"sigs.k8s.io/controller-runtime/pkg/client/apiutil"
 
-	"sigs.k8s.io/karpenter/pkg/apis"
-	"sigs.k8s.io/karpenter/pkg/operator/scheme"
-	. "sigs.k8s.io/karpenter/pkg/test/expectations"
-	. "sigs.k8s.io/karpenter/pkg/utils/testing"
+	"github.com/extole/karpenter/pkg/apis"
+	"github.com/extole/karpenter/pkg/operator/scheme"
+	. "github.com/extole/karpenter/pkg/test/expectations"
+	. "github.com/extole/karpenter/pkg/utils/testing"
 
-	"sigs.k8s.io/karpenter/pkg/apis/v1beta1"
-	"sigs.k8s.io/karpenter/pkg/scheduling"
-	"sigs.k8s.io/karpenter/pkg/test"
-	nodeclaimutil "sigs.k8s.io/karpenter/pkg/utils/nodeclaim"
+	"github.com/extole/karpenter/pkg/apis/v1beta1"
+	"github.com/extole/karpenter/pkg/scheduling"
+	"github.com/extole/karpenter/pkg/test"
+	nodeclaimutil "github.com/extole/karpenter/pkg/utils/nodeclaim"
 )
 
 var (

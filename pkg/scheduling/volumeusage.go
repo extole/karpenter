@@ -33,7 +33,7 @@ import (
 
 	"sigs.k8s.io/controller-runtime/pkg/log"
 
-	volumeutil "sigs.k8s.io/karpenter/pkg/utils/volume"
+	volumeutil "github.com/extole/karpenter/pkg/utils/volume"
 )
 
 //go:generate controller-gen object:headerFile="../../hack/boilerplate.go.txt" paths="."

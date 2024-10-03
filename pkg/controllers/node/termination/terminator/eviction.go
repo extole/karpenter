@@ -37,10 +37,10 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/manager"
 	"sigs.k8s.io/controller-runtime/pkg/reconcile"
 
-	terminatorevents "sigs.k8s.io/karpenter/pkg/controllers/node/termination/terminator/events"
-	"sigs.k8s.io/karpenter/pkg/operator/controller"
+	terminatorevents "github.com/extole/karpenter/pkg/controllers/node/termination/terminator/events"
+	"github.com/extole/karpenter/pkg/operator/controller"
 
-	"sigs.k8s.io/karpenter/pkg/events"
+	"github.com/extole/karpenter/pkg/events"
 )
 
 const (

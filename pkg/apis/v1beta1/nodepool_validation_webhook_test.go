@@ -30,7 +30,7 @@ import (
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/util/sets"
 
-	. "sigs.k8s.io/karpenter/pkg/apis/v1beta1"
+	. "github.com/extole/karpenter/pkg/apis/v1beta1"
 )
 
 var _ = Describe("Webhook/Validation", func() {

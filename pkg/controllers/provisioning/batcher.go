@@ -20,7 +20,7 @@ import (
 	"context"
 	"time"
 
-	"sigs.k8s.io/karpenter/pkg/operator/options"
+	"github.com/extole/karpenter/pkg/operator/options"
 )
 
 // Batcher separates a stream of Trigger() calls into windowed slices. The
