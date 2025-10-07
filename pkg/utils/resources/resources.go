@@ -17,6 +17,7 @@ limitations under the License.
 package resources
 
 import (
+	"strings"
 	"github.com/samber/lo"
 	v1 "k8s.io/api/core/v1"
 	"k8s.io/apimachinery/pkg/api/resource"
@@ -237,6 +238,10 @@ func Fits(candidate, total v1.ResourceList) bool {
 		}
 	}
 	for resourceName, quantity := range candidate {
+		// https://github.com/kubernetes-sigs/karpenter/pull/603/files
+		if strings.Contains(resourceName.String(), "pepperdata") {
+			continue
+		}
 		if Cmp(quantity, total[resourceName]) > 0 {
 			return false
 		}

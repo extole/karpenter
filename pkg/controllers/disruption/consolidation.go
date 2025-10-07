@@ -46,7 +46,7 @@ import (
 const consolidationTTL = 15 * time.Second
 
 // MinInstanceTypesForSpotToSpotConsolidation is the minimum number of instanceTypes in a NodeClaim needed to trigger spot-to-spot single-node consolidation
-const MinInstanceTypesForSpotToSpotConsolidation = 15
+const MinInstanceTypesForSpotToSpotConsolidation = 5
 
 // consolidation is the base consolidation controller that provides common functionality used across the different
 // consolidation methods.
