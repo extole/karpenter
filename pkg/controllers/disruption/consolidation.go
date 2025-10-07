@@ -274,13 +274,13 @@ func (c *consolidation) computeSpotToSpotConsolidation(ctx context.Context, cand
 
 	// For single-node consolidation:
 
-	minInstanceTypes := options.FromContext(ctx).MinInstanceTypesForSpotToSpotConsolidation
+	minInstanceTypesForSpotToSpotConsolidation := options.FromContext(ctx).MinInstanceTypesForSpotToSpotConsolidation
 	// We check whether we have the required number of cheaper instances than the current candidate instance. If this is the case, we know the following things:
 	//   1) The current candidate is not in the set of the cheapest instance types and
 	//   2) There were at least the minimum required options cheaper than the current candidate.
-	if len(results.NewNodeClaims[0].InstanceTypeOptions) < minInstanceTypes {
+	if len(results.NewNodeClaims[0].InstanceTypeOptions) < minInstanceTypesForSpotToSpotConsolidation {
 		c.recorder.Publish(disruptionevents.Unconsolidatable(candidates[0].Node, candidates[0].NodeClaim, fmt.Sprintf("SpotToSpotConsolidation requires %d cheaper instance type options than the current candidate to consolidate, got %d",
-			minInstanceTypes, len(results.NewNodeClaims[0].InstanceTypeOptions)))...)
+			minInstanceTypesForSpotToSpotConsolidation, len(results.NewNodeClaims[0].InstanceTypeOptions)))...)
 		return Command{}, nil
 	}
 
@@ -295,10 +295,10 @@ func (c *consolidation) computeSpotToSpotConsolidation(ctx context.Context, cand
 	// Taking this to the configured minimum types, we need to only send the cheapest types in the CreateInstanceFromTypes call so that the resulting instance is always in that set and we won't immediately consolidate.
 	if results.NewNodeClaims[0].Requirements.HasMinValues() {
 		// Here we are trying to get the max of the minimum instances required to satisfy the minimum requirement and the configured minimum to cap the instances for spot-to-spot consolidation.
-		minInstanceTypesFromReqs, _, _ := results.NewNodeClaims[0].InstanceTypeOptions.SatisfiesMinValues(results.NewNodeClaims[0].Requirements)
-		results.NewNodeClaims[0].InstanceTypeOptions = lo.Slice(results.NewNodeClaims[0].InstanceTypeOptions, 0, lo.Max([]int{minInstanceTypes, minInstanceTypesFromReqs}))
+		minInstanceTypes, _, _ := results.NewNodeClaims[0].InstanceTypeOptions.SatisfiesMinValues(results.NewNodeClaims[0].Requirements)
+		results.NewNodeClaims[0].InstanceTypeOptions = lo.Slice(results.NewNodeClaims[0].InstanceTypeOptions, 0, lo.Max([]int{minInstanceTypesForSpotToSpotConsolidation, minInstanceTypes}))
 	} else {
-		results.NewNodeClaims[0].InstanceTypeOptions = lo.Slice(results.NewNodeClaims[0].InstanceTypeOptions, 0, minInstanceTypes)
+		results.NewNodeClaims[0].InstanceTypeOptions = lo.Slice(results.NewNodeClaims[0].InstanceTypeOptions, 0, minInstanceTypesForSpotToSpotConsolidation)
 	}
 
 	return Command{
