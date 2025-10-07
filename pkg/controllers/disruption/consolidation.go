@@ -289,11 +289,11 @@ func (c *consolidation) computeSpotToSpotConsolidation(ctx context.Context, cand
 	// If no minValues in the NodePool requirement, then we follow the configured minimum to cap the instance types for launch to enable a spot-to-spot consolidation.
 	// Restrict the InstanceTypeOptions for launch to the configured minimum so we don't get into a continual consolidation situation.
 	// For example:
-	// 1) Suppose we have 5 instance types, (A, B, C, D, E) in order of price with the minimum flexibility 3 and they'll all work for our pod.  We send CreateInstanceFromTypes(A,B,C,D,E) and it gives us a E type based on price and availability of spot.
-	// 2) We check if E is part of (A,B,C,D) and it isn't, so we will immediately have consolidation send a CreateInstanceFromTypes(A,B,C,D), since they`re cheaper than E.
-	// 3) Assuming CreateInstanceFromTypes(A,B,C,D) returned D, we check if D is part of (A,B,C) and it isn't, so will have another consolidation send a CreateInstanceFromTypes(A,B,C), since they`re cheaper than D resulting in continual consolidation.
+	// 1) Suppose we have 5 instance types, (A, B, C, D, E) in order of price with the minimum flexibility 3 and they’ll all work for our pod.  We send CreateInstanceFromTypes(A,B,C,D,E) and it gives us a E type based on price and availability of spot.
+	// 2) We check if E is part of (A,B,C,D) and it isn't, so we will immediately have consolidation send a CreateInstanceFromTypes(A,B,C,D), since they’re cheaper than E.
+	// 3) Assuming CreateInstanceFromTypes(A,B,C,D) returned D, we check if D is part of (A,B,C) and it isn't, so will have another consolidation send a CreateInstanceFromTypes(A,B,C), since they’re cheaper than D resulting in continual consolidation.
 	// If we had restricted instance types to min flexibility at launch at step (1) i.e CreateInstanceFromTypes(A,B,C), we would have received the instance type part of the list preventing immediate consolidation.
-	// Taking this to the configured minimum types, we need to only send the cheapest types in the CreateInstanceFromTypes call so that the resulting instance is always in that set and we won`t immediately consolidate.
+	// Taking this to the configured minimum types, we need to only send the cheapest types in the CreateInstanceFromTypes call so that the resulting instance is always in that set and we won’t immediately consolidate.
 	if results.NewNodeClaims[0].Requirements.HasMinValues() {
 		// Here we are trying to get the max of the minimum instances required to satisfy the minimum requirement and the configured minimum to cap the instances for spot-to-spot consolidation.
 		minInstanceTypes, _, _ := results.NewNodeClaims[0].InstanceTypeOptions.SatisfiesMinValues(results.NewNodeClaims[0].Requirements)
