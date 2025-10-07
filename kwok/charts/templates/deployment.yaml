@@ -118,6 +118,10 @@ spec:
             - name: MIN_VALUES_POLICY
               value: "{{ . }}"
           {{- end }}
+          {{- with .Values.settings.minInstanceTypesForSpotToSpotConsolidation }}
+            - name: MIN_INSTANCE_TYPES_FOR_SPOT_TO_SPOT_CONSOLIDATION
+              value: "{{ . }}"
+          {{- end }}
           {{- with .Values.controller.env }}
             {{- toYaml . | nindent 12 }}
           {{- end }}

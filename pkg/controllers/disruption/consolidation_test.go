@@ -1097,12 +1097,12 @@ var _ = Describe("Consolidation", func() {
 			// shouldn't delete the node
 			Expect(ExpectNodes(ctx, env.Client)).To(HaveLen(1))
 
-			// Expect Unconsolidatable events to be fired
-			_, ok := lo.Find(recorder.Events(), func(e events.Event) bool {
-				return strings.Contains(e.Message, fmt.Sprintf("SpotToSpotConsolidation requires %d cheaper instance type options than the current candidate to consolidate, got %d",
-					disruption.MinInstanceTypesForSpotToSpotConsolidation, 1))
-			})
-			Expect(ok).To(BeTrue())
+		// Expect Unconsolidatable events to be fired
+		_, ok := lo.Find(recorder.Events(), func(e events.Event) bool {
+			return strings.Contains(e.Message, fmt.Sprintf("SpotToSpotConsolidation requires %d cheaper instance type options than the current candidate to consolidate, got %d",
+				options.FromContext(ctx).MinInstanceTypesForSpotToSpotConsolidation, 1))
+		})
+		Expect(ok).To(BeTrue())
 		})
 		It("cannot replace spot with spot if the spotToSpotConsolidation is disabled", func() {
 			ctx = options.ToContext(ctx, test.Options(test.OptionsFields{FeatureGates: test.FeatureGates{SpotToSpotConsolidation: lo.ToPtr(false)}}))

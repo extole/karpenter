@@ -144,7 +144,13 @@ settings:
     # -- spotToSpotConsolidation is ALPHA and is disabled by default.
     # Setting this to true will enable spot replacement consolidation for both single and multi-node consolidation.
     spotToSpotConsolidation: false
+    # -- staticCapacity is ALPHA and is disabled by default.
+    # Setting this to true will enable static capacity support.
+    staticCapacity: false
     # -- nodeRepair is ALPHA and is disabled by default.
     # Setting this to true will enable node repair.
     nodeRepair: false
+  # -- The minimum number of instance types required for spot-to-spot consolidation.
+  # This prevents repeated consolidation by ensuring sufficient instance type flexibility.
+  minInstanceTypesForSpotToSpotConsolidation: 15
 

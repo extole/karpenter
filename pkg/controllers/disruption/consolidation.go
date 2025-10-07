@@ -45,9 +45,6 @@ import (
 // consolidationTTL is the TTL between creating a consolidation command and validating that it still works.
 const consolidationTTL = 15 * time.Second
 
-// MinInstanceTypesForSpotToSpotConsolidation is the minimum number of instanceTypes in a NodeClaim needed to trigger spot-to-spot single-node consolidation
-const MinInstanceTypesForSpotToSpotConsolidation = 15
-
 // consolidation is the base consolidation controller that provides common functionality used across the different
 // consolidation methods.
 type consolidation struct {
@@ -277,30 +274,31 @@ func (c *consolidation) computeSpotToSpotConsolidation(ctx context.Context, cand
 
 	// For single-node consolidation:
 
-	// We check whether we have 15 cheaper instances than the current candidate instance. If this is the case, we know the following things:
-	//   1) The current candidate is not in the set of the 15 cheapest instance types and
-	//   2) There were at least 15 options cheaper than the current candidate.
-	if len(results.NewNodeClaims[0].InstanceTypeOptions) < MinInstanceTypesForSpotToSpotConsolidation {
+	minInstanceTypes := options.FromContext(ctx).MinInstanceTypesForSpotToSpotConsolidation
+	// We check whether we have the required number of cheaper instances than the current candidate instance. If this is the case, we know the following things:
+	//   1) The current candidate is not in the set of the cheapest instance types and
+	//   2) There were at least the minimum required options cheaper than the current candidate.
+	if len(results.NewNodeClaims[0].InstanceTypeOptions) < minInstanceTypes {
 		c.recorder.Publish(disruptionevents.Unconsolidatable(candidates[0].Node, candidates[0].NodeClaim, fmt.Sprintf("SpotToSpotConsolidation requires %d cheaper instance type options than the current candidate to consolidate, got %d",
-			MinInstanceTypesForSpotToSpotConsolidation, len(results.NewNodeClaims[0].InstanceTypeOptions)))...)
+			minInstanceTypes, len(results.NewNodeClaims[0].InstanceTypeOptions)))...)
 		return Command{}, nil
 	}
 
 	// If a user has minValues set in their NodePool requirements, then we cap the number of instancetypes at 100 which would be the actual number of instancetypes sent for launch to enable spot-to-spot consolidation.
-	// If no minValues in the NodePool requirement, then we follow the default 15 to cap the instance types for launch to enable a spot-to-spot consolidation.
-	// Restrict the InstanceTypeOptions for launch to 15(if default) so we don't get into a continual consolidation situation.
+	// If no minValues in the NodePool requirement, then we follow the configured minimum to cap the instance types for launch to enable a spot-to-spot consolidation.
+	// Restrict the InstanceTypeOptions for launch to the configured minimum so we don't get into a continual consolidation situation.
 	// For example:
-	// 1) Suppose we have 5 instance types, (A, B, C, D, E) in order of price with the minimum flexibility 3 and they’ll all work for our pod.  We send CreateInstanceFromTypes(A,B,C,D,E) and it gives us a E type based on price and availability of spot.
-	// 2) We check if E is part of (A,B,C,D) and it isn't, so we will immediately have consolidation send a CreateInstanceFromTypes(A,B,C,D), since they’re cheaper than E.
-	// 3) Assuming CreateInstanceFromTypes(A,B,C,D) returned D, we check if D is part of (A,B,C) and it isn't, so will have another consolidation send a CreateInstanceFromTypes(A,B,C), since they’re cheaper than D resulting in continual consolidation.
+	// 1) Suppose we have 5 instance types, (A, B, C, D, E) in order of price with the minimum flexibility 3 and they'll all work for our pod.  We send CreateInstanceFromTypes(A,B,C,D,E) and it gives us a E type based on price and availability of spot.
+	// 2) We check if E is part of (A,B,C,D) and it isn't, so we will immediately have consolidation send a CreateInstanceFromTypes(A,B,C,D), since they're cheaper than E.
+	// 3) Assuming CreateInstanceFromTypes(A,B,C,D) returned D, we check if D is part of (A,B,C) and it isn't, so will have another consolidation send a CreateInstanceFromTypes(A,B,C), since they're cheaper than D resulting in continual consolidation.
 	// If we had restricted instance types to min flexibility at launch at step (1) i.e CreateInstanceFromTypes(A,B,C), we would have received the instance type part of the list preventing immediate consolidation.
-	// Taking this to 15 types, we need to only send the 15 cheapest types in the CreateInstanceFromTypes call so that the resulting instance is always in that set of 15 and we won’t immediately consolidate.
+	// Taking this to the configured minimum types, we need to only send the cheapest types in the CreateInstanceFromTypes call so that the resulting instance is always in that set and we won't immediately consolidate.
 	if results.NewNodeClaims[0].Requirements.HasMinValues() {
-		// Here we are trying to get the max of the minimum instances required to satisfy the minimum requirement and the default 15 to cap the instances for spot-to-spot consolidation.
-		minInstanceTypes, _, _ := results.NewNodeClaims[0].InstanceTypeOptions.SatisfiesMinValues(results.NewNodeClaims[0].Requirements)
-		results.NewNodeClaims[0].InstanceTypeOptions = lo.Slice(results.NewNodeClaims[0].InstanceTypeOptions, 0, lo.Max([]int{MinInstanceTypesForSpotToSpotConsolidation, minInstanceTypes}))
+		// Here we are trying to get the max of the minimum instances required to satisfy the minimum requirement and the configured minimum to cap the instances for spot-to-spot consolidation.
+		minInstanceTypesFromReqs, _, _ := results.NewNodeClaims[0].InstanceTypeOptions.SatisfiesMinValues(results.NewNodeClaims[0].Requirements)
+		results.NewNodeClaims[0].InstanceTypeOptions = lo.Slice(results.NewNodeClaims[0].InstanceTypeOptions, 0, lo.Max([]int{minInstanceTypes, minInstanceTypesFromReqs}))
 	} else {
-		results.NewNodeClaims[0].InstanceTypeOptions = lo.Slice(results.NewNodeClaims[0].InstanceTypeOptions, 0, MinInstanceTypesForSpotToSpotConsolidation)
+		results.NewNodeClaims[0].InstanceTypeOptions = lo.Slice(results.NewNodeClaims[0].InstanceTypeOptions, 0, minInstanceTypes)
 	}
 
 	return Command{

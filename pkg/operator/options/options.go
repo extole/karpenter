@@ -65,29 +65,30 @@ type FeatureGates struct {
 
 // Options contains all CLI flags / env vars for karpenter-core. It adheres to the options.Injectable interface.
 type Options struct {
-	ServiceName                      string
-	MetricsPort                      int
-	HealthProbePort                  int
-	KubeClientQPS                    int
-	KubeClientBurst                  int
-	EnableProfiling                  bool
-	DisableLeaderElection            bool
-	DisableClusterStateObservability bool
-	LeaderElectionName               string
-	LeaderElectionNamespace          string
-	MemoryLimit                      int64
-	CPURequests                      int64
-	LogLevel                         string
-	LogOutputPaths                   string
-	LogErrorOutputPaths              string
-	BatchMaxDuration                 time.Duration
-	BatchIdleDuration                time.Duration
-	preferencePolicyRaw              string
-	PreferencePolicy                 PreferencePolicy
-	minValuesPolicyRaw               string
-	MinValuesPolicy                  MinValuesPolicy
-	IgnoreDRARequests                bool // NOTE: This flag will be removed once formal DRA support is GA in Karpenter.
-	FeatureGates                     FeatureGates
+	ServiceName                                   string
+	MetricsPort                                   int
+	HealthProbePort                               int
+	KubeClientQPS                                 int
+	KubeClientBurst                               int
+	EnableProfiling                               bool
+	DisableLeaderElection                         bool
+	DisableClusterStateObservability              bool
+	LeaderElectionName                            string
+	LeaderElectionNamespace                       string
+	MemoryLimit                                   int64
+	CPURequests                                   int64
+	LogLevel                                      string
+	LogOutputPaths                                string
+	LogErrorOutputPaths                           string
+	BatchMaxDuration                              time.Duration
+	BatchIdleDuration                             time.Duration
+	preferencePolicyRaw                           string
+	PreferencePolicy                              PreferencePolicy
+	minValuesPolicyRaw                            string
+	MinValuesPolicy                               MinValuesPolicy
+	IgnoreDRARequests                             bool // NOTE: This flag will be removed once formal DRA support is GA in Karpenter.
+	MinInstanceTypesForSpotToSpotConsolidation    int
+	FeatureGates                                  FeatureGates
 }
 
 type FlagSet struct {
@@ -128,6 +129,7 @@ func (o *Options) AddFlags(fs *FlagSet) {
 	fs.StringVar(&o.preferencePolicyRaw, "preference-policy", env.WithDefaultString("PREFERENCE_POLICY", string(PreferencePolicyRespect)), "How the Karpenter scheduler should treat preferences. Preferences include preferredDuringSchedulingIgnoreDuringExecution node and pod affinities/anti-affinities and ScheduleAnyways topologySpreadConstraints. Can be one of 'Ignore' and 'Respect'")
 	fs.StringVar(&o.minValuesPolicyRaw, "min-values-policy", env.WithDefaultString("MIN_VALUES_POLICY", string(MinValuesPolicyStrict)), "Min values policy for scheduling. Options include 'Strict' for existing behavior where min values are strictly enforced or 'BestEffort' where Karpenter relaxes min values when it isn't satisfied.")
 	fs.BoolVarWithEnv(&o.IgnoreDRARequests, "ignore-dra-requests", "IGNORE_DRA_REQUESTS", true, "When set, Karpenter will ignore pods' DRA requests during scheduling simulations. NOTE: This flag will be removed once formal DRA support is GA in Karpenter.")
+	fs.IntVar(&o.MinInstanceTypesForSpotToSpotConsolidation, "min-instance-types-for-spot-to-spot-consolidation", env.WithDefaultInt("MIN_INSTANCE_TYPES_FOR_SPOT_TO_SPOT_CONSOLIDATION", 15), "The minimum number of instance types required for spot-to-spot consolidation. This prevents repeated consolidation by ensuring sufficient instance type flexibility.")
 	fs.StringVar(&o.FeatureGates.inputStr, "feature-gates", env.WithDefaultString("FEATURE_GATES", "NodeRepair=false,ReservedCapacity=true,SpotToSpotConsolidation=false,NodeOverlay=false,StaticCapacity=false"), "Optional features can be enabled / disabled using feature gates. Current options are: NodeRepair, ReservedCapacity, SpotToSpotConsolidation, NodeOverlay, and StaticCapacity.")
 }
 
